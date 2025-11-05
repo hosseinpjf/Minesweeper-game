@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #434343;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+}
+
+.parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 90px 0 0;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto 0;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    position: relative;
+    /* border: 2px solid black; */
+    aspect-ratio: 1 / 1;
+}
+
+.endGame::after {
+    content: '';
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4c4b5058;
+}
+
+.container .box {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #4c4b50;
+    font-weight: 900;
+    transition: all .3s;
+    cursor: pointer;
+    /* border: 2px solid black; */
+    background-image: url('./image/tile.png');
+    background-position: center center;
+    background-size: 135% 135%;
+}
+
+/* .bomb{
+    background-color: #8f8f8f;
+} */
+
+.showBomb {
+    background-color: #6d0000;
+    background-image: url('./image/bomb.png') !important;
+    background-size: cover !important;
+    border: 3px solid #555;
+}
+
+.showNumber {
+    background-color: #89888d;
+    background-image: none !important;
+    border: 3px solid #555;
+}
+
+.buttons {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 30px;
+}
+
+.btnAgain {
+    width: 100%;
+    background-color: #89888d;
+    height: 30px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: -2px -4px 10px 0px #ccc;
+    transition: .2s;
+    border-radius: 5px;
+}
+
+.btnAgain:active {
+    transform: translate(-2px, -4px);
+    box-shadow: 0px 0px 3px 0px #ccc;
+}
