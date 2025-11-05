@@ -18,7 +18,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 90px 0 0;
+    margin: 30px 0 0;
     padding: 0 20px;
     width: 100%;
 }
@@ -102,4 +102,29 @@ body {
 .btnAgain:active {
     transform: translate(-2px, -4px);
     box-shadow: 0px 0px 3px 0px #ccc;
+}
+
+
+.successAlert {
+    width: 100%;
+    max-width: 350px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+
+.boxAlert {
+    width: 100%;
+    padding: 10px;
+    font-size: 35px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: greenyellow;
+    border-radius: 20px;
+    transition: 1s;
+    transform: translateX(-150%);
+}
+
+.showAlert{
+    transform: translateX(0);
 }

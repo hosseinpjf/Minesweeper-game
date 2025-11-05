@@ -73,6 +73,7 @@ function clickHandler() {
                     box.textContent = box.dataset.number;
                 }
                 box.classList.add('showNumber');
+                successGame();
             }
         })
     })
@@ -111,10 +112,15 @@ function zeroBoxes(index) {
 
 function endGame() {
     container.classList.add('endGame');
+    container.querySelectorAll('.bomb').forEach(element => {
+        element.classList.add('showBomb')
+    })
 }
 
-document.getElementsByClassName('btnAgain')[0].addEventListener('click', () => {
-    Array.from(container.children).forEach(box => { 
+const btnAgain = document.getElementsByClassName('btnAgain')[0];
+const boxAlert = document.getElementsByClassName('boxAlert')[0];
+btnAgain.addEventListener('click', () => {
+    Array.from(container.children).forEach(box => {
         box.className = 'box';
         box.dataset.number = 0;
         box.textContent = '';
@@ -122,6 +128,21 @@ document.getElementsByClassName('btnAgain')[0].addEventListener('click', () => {
     creatingRandomBombs();
     bombRoundNumbers();
     container.classList.remove('endGame');
+    boxAlert.classList.remove('showAlert');
 
     console.log(container.querySelectorAll('.bomb').length);
 })
+
+function successGame(){
+    let successBoxes = [];
+    Array.from(container.children).forEach((box, index) => {
+        if(box.classList.contains('showNumber')){
+            successBoxes.push(index);
+        }
+    })
+    if(successBoxes.length == 49){
+        console.log("success game");
+        endGame();
+        boxAlert.classList.add('showAlert');
+    }
+}
