@@ -117,10 +117,11 @@ document.getElementsByClassName('btnAgain')[0].addEventListener('click', () => {
     Array.from(container.children).forEach(box => { 
         box.className = 'box';
         box.dataset.number = 0;
+        box.textContent = '';
     })
     creatingRandomBombs();
     bombRoundNumbers();
     container.classList.remove('endGame');
-    
+
     console.log(container.querySelectorAll('.bomb').length);
 })
